@@ -1,0 +1,23 @@
+ApiBundle\Entity\TvNetwork:
+    type: entity
+    table: tv_network
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: Идентификатор
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: false
+            unique: true
+            length: 45
+            options:
+                fixed: false
+                comment: Название
+    lifecycleCallbacks: {  }

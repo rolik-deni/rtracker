@@ -1,0 +1,6 @@
+var/
+vendor/
+src/BackEndBundle/Resources/public/.sass-cache/
+src/BackEndBundle/Resources/public/node_modules/
+.web-server-pid
+app/bootstrap.php.cache

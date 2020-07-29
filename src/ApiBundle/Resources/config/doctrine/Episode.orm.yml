@@ -1,0 +1,69 @@
+ApiBundle\Entity\Episode:
+    type: entity
+    table: episode
+    # indexes:
+    #     idx_episode_serial_id:
+    #         columns:
+    #             - serial_id
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: Идентификатор
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+                comment: Название
+        originalTitle:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+                comment: 'Оригинальное название'
+            column: original_title
+        number:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: 'Номер серии'
+        seasonNumber:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: 'Номер сезона'
+            column: season_number
+        releaseDate:
+            type: datetime
+            nullable: false
+            options:
+                comment: 'Дата выхода'
+            column: release_date
+    manyToOne:
+        serial:
+            targetEntity: Serial
+            joinColumn:
+                name: serial_id
+                referencedColumnName: id
+    manyToMany:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: episode
+            inversedBy: null
+    lifecycleCallbacks:
+        postPersist: [updateNumberSeasonEpisode]
+        postRemove: [updateNumberSeasonEpisode]
+        postUpdate: [updateNumberSeasonEpisode]

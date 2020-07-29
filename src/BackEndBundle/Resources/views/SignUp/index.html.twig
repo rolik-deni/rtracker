@@ -1,0 +1,106 @@
+{% extends "BackEndBundle::base.html.twig" %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<div class="container signup">
+    <div class="title row">
+        <div class="title__col col-12">
+            <div class="title__content">
+                <div class="title__text text_one-line">
+                    Создание новой учетной записи
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main row">
+        <div class="main__col col-12">
+            <div class="main__content main__content_indent_yes">
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="row">
+                            {{ form_start(form, {'attr':{'class':'form page__form row'}}) }}
+                            {% if error is defined %}
+                            <div class="col-12">
+                                <ul>
+                                    <li>
+                                        {{ error }}
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                            <div class="form-group col-12">
+                                {{ form_label(form.email, 'Адрес электронной почты',
+                                     {'label_attr':{'class':'form__label'}})
+                                }}
+                                {{ form_errors(form.email) }}
+                                {{ form_widget(form.email,
+                                    {'attr':
+                                        {'class':'form__input form-control',
+                                        'placeholder':'E-mail адрес'}
+                                    })
+                                }}
+                            </div>
+                            <div class="form-group col-12">
+                                {{ form_label(form.password, 'Пароль',
+                                     {'label_attr':{'class':'form__label'}})
+                                }}
+                                {{ form_errors(form.password) }}
+                                {{ form_widget(form.password,
+                                    {'attr':
+                                        {'class':'form__input form-control',
+                                        'placeholder':'Пароль'}
+                                    })
+                                }}
+                            </div>
+                            <button class="form__submit" type="submit">
+                                <i class="form__submit-icon fa fa-rocket">
+                                </i>
+                                Cоздать учётную запись
+                            </button>
+                            {{ form_end(form) }}
+                            {#
+                            <form action="#" class="form page__form row">
+                                <div class="form-group col-12">
+                                    <label class="form__label" for="email">
+                                        Адрес электронной почты
+                                    </label>
+                                    <input class="form__input form-control" id="email" placeholder="E-mail адрес" type="email"/>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label class="form__label" for="password">
+                                        Пароль
+                                    </label>
+                                    <input class="form__input form-control" id="password" placeholder="Пароль" type="password"/>
+                                </div>
+                                <div class="col-12">
+                                    <button class="form__submit" type="submit">
+                                        <i class="form__submit-icon fa fa-rocket">
+                                        </i>
+                                        Cоздать учётную запись
+                                    </button>
+                                </div>
+                            </form>
+                            #}
+                        </div>
+                    </div>
+                    <div class="hidden-md-down col-lg-5">
+                        <div class="signup__text">
+                            После регистрации вы сможете:
+                        </div>
+                        <ul class="signup__opportunity">
+                            <li class="signup__opportunity-item">
+                                Гибко настроить трекер, чтобы ослеживать только то, что нужно вам
+                            </li>
+                            <li class="signup__opportunity-item">
+                                Получать рассылку трекера в соответствии с вашими предпочтениями
+                            </li>
+                            <li class="signup__opportunity-item">
+                                Принимать участие в опросах и рейтингах
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

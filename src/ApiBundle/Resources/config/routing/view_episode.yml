@@ -1,0 +1,19 @@
+view_episode_index:
+    path: /
+    defaults: { _controller: 'ApiBundle:ViewEpisode:index' }
+    methods: GET
+
+view_episode_clear:
+    path: /clear
+    defaults: { _controller: 'ApiBundle:ViewEpisode:clear' }
+    methods: DELETE
+
+view_episode_add:
+    path: /add
+    defaults: { _controller: 'ApiBundle:ViewEpisode:add' }
+    methods: PUT
+
+view_episode_delete:
+    path: /delete
+    defaults: { _controller: 'ApiBundle:ViewEpisode:delete' }
+    methods: DELETE

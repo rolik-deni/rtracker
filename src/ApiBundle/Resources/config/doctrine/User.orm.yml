@@ -1,0 +1,70 @@
+ApiBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: Идентификатор
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        email:
+            type: string
+            nullable: false
+            unique: true
+            length: 50
+            options:
+                fixed: false
+                comment: 'Эл. почта'
+        password:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+                comment: Пароль
+        registrationTime:
+            type: datetime
+            nullable: false
+            options:
+                comment: 'Дата регистрации'
+                default: CURRENT_TIMESTAMP
+            column: registration_time
+        isActive:
+            type: boolean
+    manyToMany:
+        serial:
+            targetEntity: Serial
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: track_serial
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    serial_id:
+                        referencedColumnName: id
+            orderBy: null
+        episode:
+            targetEntity: Episode
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: view_episode
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    episode_id:
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

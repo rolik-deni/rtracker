@@ -1,0 +1,267 @@
+.serial {
+  @include e('title-subscribe') {
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+    line-height: 55px;
+    display: block;
+    float: left;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    border: 0;
+    @include m('follow_on') {
+      background: #2A74A4;
+      &:hover {
+        background: #C0392B;
+        &::before {
+          content: '\f00d';
+        }
+      }
+      &::before {
+        content: '\f00c';
+      }
+    }
+    @include m('follow_off') {
+      background: #2A74A4;
+      &:hover {
+        background: #2D4052;
+      }
+      &::before {
+        content: '\f067';
+      }
+    }
+  }
+  @include e('info') {
+    @media (min-width: 992px) {
+      padding-right: 0;
+    }
+  }
+  @include e('sidebar') {
+    @media (min-width: 992px) {
+      padding-left: 0;
+    }
+  }
+  @include e('schedule');
+  @include e('content') {
+    min-height: 366px;
+  }
+}
+
+.serial-about {
+  @include e('col-description');
+  @include e('poster-mobile') {
+    max-width: 150px;
+    margin-right: 10px;
+  }
+  @include e('text') {
+    margin-bottom: 0;
+    text-align: justify;
+  }
+  @include e('schedule');
+  @include e('col-detail') {
+    @media (max-width: 1199px) {
+      margin-top: 15px;
+    }
+  }
+  @include e('data') {
+    text-align: justify;
+    th {
+      padding-right: .5rem;
+      vertical-align: top;
+    }
+  }
+  @include e('country');
+  @include e('text');
+  @include e('country-flag') {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.country-flag {
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/sprite.png);
+  @include m('flag_us') {
+    background-position: 0 -25px;
+  }
+  @include m('flag_au') {
+    background-position: -16px -25px;
+  }
+  @include m('flag_gb') {
+    background-position: -32px -25px;
+  }
+  @include m('flag_ie') {
+    background-position: -48px -25px;
+  }
+  @include m('flag_ca') {
+    background-position: -64px -25px;
+  }
+  @include m('flag_no') {
+    background-position: -80px -25px;
+  }
+  @include m('flag_ru') {
+    background-position: -96px -25px;
+  }
+  @include m('flag_it') {
+    background-position: -112px -25px;
+  }
+  @include m('flag_fr') {
+    background-position: -128px -25px;
+  }
+}
+
+.season {
+  position: relative;
+  overflow: hidden;
+  margin-top: 15px;
+  @include e('col-header');
+  @include e('col-episode-list');
+  @include e('header') {
+    cursor: pointer;
+    text-align: center;
+  }
+  @include e('title') {
+    text-align: left;
+    color: #232323;
+    &:hover {
+      text-decoration: none;
+      color: #20577B;
+    }
+    &:hover::after {
+      border-right-color: #20577B;
+    }
+    &::after {
+      position: absolute;
+      top: 50%;
+      margin: -6px 0 0 5px;
+      content: '';
+      border-width: 4px 5px 4px 0;
+      border-style: solid;
+      border-color: transparent #232323 transparent transparent;
+    }
+    @include m('active') {
+      &:hover::after {
+        border-top-color: #20577B;
+        border-right-color: transparent;
+      }
+      &::after {
+        margin: -4px 0 0 5px;
+        border-width: 5px 4px 0 4px;
+        border-style: solid;
+        border-color: #232323 transparent transparent transparent;
+      }
+    }
+  }
+  @include e('progressbar');
+  @include e('progressbar-line') {
+    height: 4px;
+    background: #C0392B;
+  }
+  @include e('progressbar-progress') {
+    width: 30%;
+    height: 100%;
+    background: #15784D;
+    transition: width 0.5s ease-in-out;
+  }
+  @include e('progressbar-counter') {
+    font-size: .75rem;
+    text-align: left;
+  }
+  @include e('episode-list') {
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+    @include m('in') {
+      display: table;
+    }
+    td,
+    th {
+      vertical-align: top;
+    }
+  }
+  @include e('episode');
+  @include e('episode-watch');
+  @include e('view-episode') {
+    visibility: hidden;
+    cursor: pointer;
+    color: #FFF;
+    border: 0;
+    background: #2A74A4;
+    @include m('subscribed') {
+      visibility: visible;
+    }
+  }
+  @include e('icon-eye');
+  @include e('episode-number') {
+    color: #666;
+  }
+  @include e('episode-published');
+  @include e('episode-title') {
+    font-weight: bold;
+  }
+  @include e('episode-status') {
+    @media (max-width: 575px) {
+      display: none;
+    }
+  }
+  @include e('episode-status_soon') {
+    color: #C0392B;
+  }
+  @include e('view-container') {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+  }
+  @include e('view-multiple') {
+    font-size: .875rem;
+    margin-left: 7px;
+    padding: 0;
+    cursor: pointer;
+    color: #20577B;
+    border: 0;
+    background: 0;
+    @include m('direction_left') {
+      float: left;
+    }
+    @include m('direction_right') {
+      float: right;
+    }
+    @include m('reset') {
+      color: #666;
+    }
+    &:focus {
+      outline: 0;
+    }
+    &:disabled {
+      cursor: default;
+      text-decoration: none;
+      color: #666;
+      border-color: transparent !important;
+    }
+    &:hover {
+      margin-top: -1px;
+      border-style: solid;
+      border-color: inherit;
+      border-top-width: 1px;
+    }
+  }
+  &__episode:hover {
+    background: #EBEBEB;
+  }
+  &__view-episode:hover {
+    background: #20577B;
+  }
+  &__episode:hover &__view-episode {
+    visibility: visible;
+  }
+  &:hover &__view-container {
+    opacity: 1;
+  }
+}

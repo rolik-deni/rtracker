@@ -1,0 +1,34 @@
+serial_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:Serial:index" }
+    methods:  GET
+
+serial_search:
+    path:     /search
+    defaults: { _controller: "ApiBundle:Serial:search" }
+    methods: GET
+
+serial_show:
+    path:     /get
+    defaults: { _controller: "ApiBundle:Serial:show" }
+    methods:  GET
+
+serial_new:
+    path:     /new
+    defaults: { _controller: "ApiBundle:Serial:new" }
+    methods:  POST
+
+serial_edit:
+    path:     /edit
+    defaults: { _controller: "ApiBundle:Serial:edit" }
+    methods:  PUT
+
+serial_delete:
+    path:     /delete
+    defaults: { _controller: "ApiBundle:Serial:delete" }
+    methods:  DELETE
+
+serial_episodes:
+    path:     /episodes
+    defaults: { _controller: "ApiBundle:Serial:episodes" }
+    methods: GET

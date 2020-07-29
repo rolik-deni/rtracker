@@ -1,0 +1,40 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: "ApiBundle:Serial:index" }
+    methods:  GET
+
+app_serial:
+    resource: "@ApiBundle/Resources/config/routing/serial.yml"
+    prefix:   serial
+
+app_country:
+    resource: "@ApiBundle/Resources/config/routing/country.yml"
+    prefix:   country
+
+app_genre:
+    resource: "@ApiBundle/Resources/config/routing/genre.yml"
+    prefix:   genre
+
+app_tvnetwork:
+    resource: "@ApiBundle/Resources/config/routing/tvnetwork.yml"
+    prefix:   tvnetwork
+
+app_validationstatus:
+    resource: "@ApiBundle/Resources/config/routing/validationstatus.yml"
+    prefix:   validationstatus
+
+app_user:
+    resource: "@ApiBundle/Resources/config/routing/user.yml"
+    prefix:   user
+
+app_episode:
+    resource: "@ApiBundle/Resources/config/routing/episode.yml"
+    prefix:   episode
+
+app_track_serial:
+    resource: "@ApiBundle/Resources/config/routing/track_serial.yml"
+    prefix:   track-serial
+
+app_view_episode:
+    resource: "@ApiBundle/Resources/config/routing/view_episode.yml"
+    prefix:   view-episode

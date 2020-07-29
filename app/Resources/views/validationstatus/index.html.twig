@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Validationstatuses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for validationStatus in validationStatuses %}
+            <tr>
+                <td><a href="{{ path('validationstatus_show', { 'id': validationStatus.id }) }}">{{ validationStatus.id }}</a></td>
+                <td>{{ validationStatus.title }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('validationstatus_show', { 'id': validationStatus.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('validationstatus_edit', { 'id': validationStatus.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('validationstatus_new') }}">Create a new validationStatus</a>
+        </li>
+    </ul>
+{% endblock %}

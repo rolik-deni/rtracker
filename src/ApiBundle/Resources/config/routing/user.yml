@@ -1,0 +1,24 @@
+user_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:User:index" }
+    methods:  GET
+
+user_show:
+    path:     /get
+    defaults: { _controller: "ApiBundle:User:show" }
+    methods:  GET
+
+user_new:
+    path:     /new
+    defaults: { _controller: "ApiBundle:User:new" }
+    methods:  POST
+
+user_edit:
+    path:     /edit
+    defaults: { _controller: "ApiBundle:User:edit" }
+    methods:  PUT
+
+user_delete:
+    path:     /delete
+    defaults: { _controller: "ApiBundle:User:delete" }
+    methods:  DELETE

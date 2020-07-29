@@ -1,0 +1,17 @@
+{
+  "name": "release-tracker",
+  "authors": [
+    "Denis Yakovlev <ydenis@bk.ru>"
+  ],
+  "description": "Demo site for the interview",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "font-awesome": "^4.6.3",
+    "jquery-ui": "^1.12.1"
+  },
+  "devDependencies": {
+    "holderjs": "holder.js#^2.9.4"
+  }
+}

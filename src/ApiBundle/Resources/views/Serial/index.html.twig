@@ -1,0 +1,55 @@
+{% extends 'ApiBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Serials list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Originaltitle</th>
+                <th>Description</th>
+                <th>Yearstart</th>
+                <th>Yearend</th>
+                <th>Actors</th>
+                <th>Poster</th>
+                <th>Imdbid</th>
+                <th>Kinopoiskid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serial in serials %}
+            <tr>
+                <td><a href="{{ path('serial_show', { 'id': serial.id }) }}">{{ serial.id }}</a></td>
+                <td>{{ serial.title }}</td>
+                <td>{{ serial.originalTitle }}</td>
+                <td>{{ serial.description }}</td>
+                <td>{% if serial.yearStart %}{{ serial.yearStart|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if serial.yearEnd %}{{ serial.yearEnd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ serial.actors }}</td>
+                <td>{{ serial.poster }}</td>
+                <td>{{ serial.imdbId }}</td>
+                <td>{{ serial.kinopoiskId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('serial_show', { 'id': serial.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('serial_edit', { 'id': serial.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('serial_new') }}">Create a new serial</a>
+        </li>
+    </ul>
+{% endblock %}

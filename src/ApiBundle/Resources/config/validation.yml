@@ -1,0 +1,7 @@
+ApiBundle\Entity\Serial:
+  properties:
+    originalTitle:
+      - NotBlank:
+          message: 'Название не может быть пустым.'
+    url:
+      - NotBlank:

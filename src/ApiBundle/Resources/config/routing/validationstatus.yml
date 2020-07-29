@@ -1,0 +1,24 @@
+validationstatus_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:ValidationStatus:index" }
+    methods:  GET
+
+validationstatus_show:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:ValidationStatus:show" }
+    methods:  GET
+
+validationstatus_new:
+    path:     /
+    defaults: { _controller: "ApiBundle:ValidationStatus:new" }
+    methods:  POST
+
+validationstatus_edit:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:ValidationStatus:edit" }
+    methods:  PUT
+
+validationstatus_delete:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:ValidationStatus:delete" }
+    methods:  DELETE

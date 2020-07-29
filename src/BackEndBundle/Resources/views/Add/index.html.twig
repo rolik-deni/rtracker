@@ -1,0 +1,48 @@
+{% extends "BackEndBundle::base.html.twig" %}
+{% block title %}Добавить сериал{% endblock %}
+{% block content %}
+<div class="container add">
+    <div class="title row">
+        <div class="title__col col-12">
+            <div class="title__content">
+                <div class="title__text text_one-line">
+                    Добавление сериала
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main row">
+        <div class="main__col col-12">
+            <div class="main__content main__content_indent_yes">
+                <form action="{{ path('add') }}" class="form page__form" method="POST">
+                    <div class="row justify-content-center">
+                        <div class="form__col col-12 col-md-9 col-lg-8 col-xl-7">
+                            <div class="form-group">
+                                <label class="form__label form__label_require" for="title">
+                                    Название
+                                </label>
+                                <input class="form__input form-control" id="title" name="title" type="text" required />
+                            </div>
+                        </div>
+                        <div class="form__col col-12 col-md-9 col-lg-8 col-xl-7">
+                            <div class="form-group">
+                                <label class="form__label form__label_require" for="link">
+                                    Ссылка на сериал
+                                </label>
+                                <input class="form__input form-control" id="link" name="link" type="text" required/>
+                            </div>
+                        </div>
+                        <div class="form__col col-12">
+                            <button class="form__submit" type="submit">
+                                <i aria-hidden="true" class="form__submit-icon fa fa-plus">
+                                </i>
+                                Отправить на модерацию
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

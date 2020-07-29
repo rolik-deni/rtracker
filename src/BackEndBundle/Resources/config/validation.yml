@@ -1,0 +1,13 @@
+BackEndBundle\Entity\SignUp:
+    properties:
+        email:
+            - NotBlank:
+                message: Не должен быть пустым
+            - Email:
+                message: Недопустимый адрес электронной почты
+        password:
+            - NotBlank:
+                message: Не должен быть пустым
+            - Length:
+                max: 45
+                maxMessage: Не должeн превышать 45 символов

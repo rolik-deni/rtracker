@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="page" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <title>
+            {% block title%}ReleaseTracker{% endblock %}
+        </title>
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+        <link href="{{ asset('bundles/backend/stylesheets/bootstrap.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('bundles/backend/node_modules/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('bundles/backend/stylesheets/theme.css') }}" rel="stylesheet"/>
+    </head>
+    <body class="page__body">
+        <div class="container">
+            {% block header %}
+            <header class="header page__header row">
+                <div class="header__col-logo col-6 col-md-6 col-lg-4 col-xl-3">
+                    <a class="logo header__logo" href="{{ path('search') }}" title="Главная страница ReleaseTracker">
+                        <img alt="График, дата выхода сериала" class="logo__img" src="{{ asset('bundles/backend/images/cleardot.gif') }}"/>
+                        <span class="logo__text">
+                            Отслеживайте сериалы просто и удобно
+                        </span>
+                    </a>
+                </div>
+                <div class="header__col-share hidden-md-down col-lg-3 col-xl-3">
+                    <div class="share">
+                        <span class="share__text">
+                            Расскажите о нашем сервисе друзьям
+                        </span>
+                        <div class="share__network">
+                            <span class="share__link" title="Поделиться ссылкой в facebook">
+                                <i class="share__icon share__icon_facebook fa fa-facebook">
+                                </i>
+                            </span>
+                            <span class="share__link" title="Поделиться ссылкой в контакте">
+                                <i class="share__icon fa fa-vk">
+                                </i>
+                            </span>
+                            <span class="share__link" title="Поделиться ссылкой в twitter">
+                                <i class="share__icon fa fa-twitter">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col-menu col-6 col-md-6 col-lg-5 col-xl-6">
+                    <ul class="menu header__menu">
+                        {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
+                        <li class="menu__item" title="Создать учётную запись">
+                            <a class="menu__link menu__link_sign_up" href="{{ path('signup') }}">
+                                <i class="menu__icon fa fa-user-plus">
+                                </i>
+                            </a>
+                        </li>
+                        <li class="menu__item" title="Войти">
+                            <a class="menu__link menu__link_log_in" href="{{ path('login') }}">
+                                <i class="menu__icon fa fa-sign-in">
+                                </i>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="menu__item" title="Добавить новый сериал">
+                            <a class="menu__link menu__link_add" href="{{ path('add') }}">
+                                <i class="menu__icon fa fa-plus-circle">
+                                </i>
+                            </a>
+                        </li>
+                        <li class="menu__item" title="Выйти">
+                            <a class="menu__link menu__link_log_out" href="{{ path('logout') }}">
+                                <i class="menu__icon fa fa-sign-out">
+                                </i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </header>
+            {% endblock %}
+        </div>
+        {% block notification %}
+        {# {% set notify = {status: 'success', message: 'Заявка передана на рассмотрение.'} %} #}
+        {% if notify is defined %}
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="notification">
+                            <div class="notification__badge badge badge-{{ notify.status }}">
+                            </div>
+                            <div class="notification__message">
+                                {{ notify.message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% endblock %}
+        {% block content %}Content{% endblock %}
+        <div class="container">
+            {% block footer %}
+            <footer class="page__footer footer row">
+                <div class="footer__col col-12">
+                    <span class="footer__copyright">
+                        © releasetracker 2011 — 2018
+                    </span>
+                    <ul class="support-menu footer__support-menu">
+                        <li class="support-menu__item">
+                            <a class="support-menu__link" href="#">
+                                каталог
+                            </a>
+                        </li>
+                        <li class="support-menu__item">
+                            <a class="support-menu__link" href="#">
+                                помощь
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            {% endblock %}
+        </div>
+    </body>
+</html>
+{% block scripts %}{% endblock %}

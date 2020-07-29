@@ -1,0 +1,24 @@
+tvnetwork_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:TvNetwork:index" }
+    methods:  GET
+
+tvnetwork_show:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:TvNetwork:show" }
+    methods:  GET
+
+tvnetwork_new:
+    path:     /
+    defaults: { _controller: "ApiBundle:TvNetwork:new" }
+    methods:  POST
+
+tvnetwork_edit:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:TvNetwork:edit" }
+    methods:  PUT
+
+tvnetwork_delete:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:TvNetwork:delete" }
+    methods:  DELETE

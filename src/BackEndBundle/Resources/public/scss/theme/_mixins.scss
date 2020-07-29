@@ -1,0 +1,44 @@
+@mixin e ($element) {
+	@include element ($element) {
+		@content;
+	}
+}
+
+@mixin m ($modifier) {
+	@include modifier ($modifier) {
+		@content;
+	}
+}
+
+@mixin element ($element, $block: null) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin modifier ($modifier, $block: null) {
+	&_#{$modifier} {
+		@content;
+	}
+}
+
+@mixin placeholder($color) {
+	/* WebKit, Blink, Edge */
+	&::-webkit-input-placeholder {
+		color: $color;
+		opacity: 1;
+	}
+	/* Firefox 19+ */
+	&::-moz-placeholder {
+		color: $color;
+	}
+	/* Firefox 4-18 */
+	&:-moz-placeholder {
+		color: $color;
+		opacity: 1;
+	}
+	/* IE 10-11 */
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}

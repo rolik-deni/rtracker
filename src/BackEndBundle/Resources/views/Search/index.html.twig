@@ -1,0 +1,244 @@
+{% extends "BackEndBundle::base.html.twig" %}
+{% block title %}Homepage{% endblock%}
+{% block content %}
+<div class="container start">
+    <div class="title row">
+        <div class="title__col col-12">
+            <div class="title__content">
+                <i class="start__title-icon start__title-icon_loupe fa fa-search">
+                </i>
+                <input class="start__title-field placeholder_white" placeholder="Начните вводить название сериала" type="search"/>
+                <div class="start__title-nav">
+                    <button class="start__title-item start__title-item_prev" type="button">
+                        <i class="start__title-icon fa fa-chevron-left">
+                        </i>
+                    </button>
+                    <button class="start__title-item start__title-item_next" type="button">
+                        <i class="start__title-icon fa fa-chevron-right">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main row" id="main-section">
+        <div class="main__col col-12">
+            <div class="main__content main__content_dark">
+                <div class="row">
+                    <div class="start__serial-list col-12 col-lg-8">
+                        <div class="main__content main__content_indent_yes">
+                            <div class="row main__serial-list">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="start__sidebar col-12 col-lg-4">
+                        <div class="accordion" id="accordion">
+                            <div class="tab">
+                                <a class="tab__header" data-parent="#accordion" href="#tab-sort">
+                                    Упорядочить
+                                </a>
+                                <div class="tab__content" id="tab-sort">
+                                    <div class="clearfix">
+                                        <ul class="filter-list filter-list_reset filter-list_left text_select_no">
+                                            <li>
+                                                <input id="sort_name" name="sort" type="radio" value="serial.title"/>
+                                                <label class="filter-list__item" for="sort_name">
+                                                    по алфавиту
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <input id="sort_year_begin" name="sort" type="radio" value="serial.yearStart"/>
+                                                <label class="filter-list__item" for="sort_year_begin">
+                                                    по дате премьеры
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <ul class="filter-list filter-list_reset filter-list_right text_select_no">
+                                            <li>
+                                                <input id="order_asc" name="order" type="radio" value="ASC"/>
+                                                <label class="filter-list__item" for="order_asc">
+                                                    прямой порядок
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <input id="order_desc" name="order" type="radio" value="DESC"/>
+                                                <label class="filter-list__item" for="order_desc">
+                                                    обратный порядок
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab__block-tracked">
+                                        <ul class="filter-list filter-list_reset">
+                                            <li>
+                                                {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
+                                                <input disabled="" id="tracked_on" name="track" type="checkbox" value="on"/>
+                                                {% else %}
+                                                <input id="tracked_on" name="track" type="checkbox" value="on"/>
+                                                {% endif %}
+                                                <label class="filter-list__item text_select_no" for="tracked_on">
+                                                    в режиме трекера
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <span class="text_helper text_helper-offset_left">
+                                            показывать только отслеживаемые сериалы
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <a class="tab__header" data-parent="#accordion" href="#tab-filter">
+                                    Фильтры:
+                                </a>
+                                <div class="tab__content tab__content_sub" id="tab-filter">
+                                    <div class="tab__sub">
+                                        <a class="tab__header tab__header_sub" data-parent="#tab-filter" href="#tab-filter-genre">
+                                            Жанр
+                                        </a>
+                                        <div class="tab__content tab__content_in" id="tab-filter-genre">
+                                            <span class="text_helper text_helper-offset_left text_helper-offset_bottom">
+                                                Выберите жанры
+                                            </span>
+                                            <ul class="filter-list filter-list_reset text_select_no">
+                                                {% if genres is defined and genres is not empty %}
+                                                    {% for genre in genres %}
+                                                <li>
+                                                    <input id="genre_{{ genre.id }}" name="genre" type="checkbox" value="{{ genre.id }}"/>
+                                                    <label class="filter-list__item" for="genre_{{ genre.id }}">
+                                                        {{ genre.title }}
+                                                    </label>
+                                                </li>
+                                                {% endfor %}
+                                                {% else %}
+                                                    …
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab__sub">
+                                        <a class="tab__header tab__header_sub" data-parent="#tab-filter" href="#tab-filter-tvnetwork">
+                                            Телесеть
+                                        </a>
+                                        <div class="tab__content" id="tab-filter-tvnetwork">
+                                            <span class="text_helper text_helper-offset_left text_helper-offset_bottom">
+                                                Выберите телесеть
+                                            </span>
+                                            <ul class="filter-list filter-list_reset text_select_no">
+                                                {% if tvNetworks is defined and tvNetworks is not empty %}
+                                                    {% for tvNetwork in tvNetworks %}
+                                                <li>
+                                                    <input id="tvNetwork_{{ tvNetwork.id }}" name="tvNetwork" type="checkbox" value="{{ tvNetwork.id }}"/>
+                                                    <label class="filter-list__item" for="tvNetwork_{{ tvNetwork.id }}">
+                                                        {{ tvNetwork.title }}
+                                                    </label>
+                                                </li>
+                                                {% endfor %}
+                                                {% else %}
+                                                    …
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab__sub">
+                                        <a class="tab__header tab__header_sub" data-parent="#tab-filter" href="#tab-filter-premiere">
+                                            Год премьеры
+                                        </a>
+                                        <div class="tab__content" id="tab-filter-premiere">
+                                            <span class="text_helper text_helper-offset_left text_helper-offset_bottom">
+                                                Выберите год
+                                            </span>
+                                            <ul class="filter-list filter-list_reset">
+                                                {% if years is defined and years is not empty %}
+                                                    {% for year in years %}
+                                                <li>
+                                                    <input id="yearStart_{{ year }}" name="yearStart" type="checkbox" value="{{ year }}"/>
+                                                    <label class="filter-list__item" for="yearStart_{{ year }}">
+                                                        {{ year }}
+                                                    </label>
+                                                </li>
+                                                {% endfor %}
+                                                {% else %}
+                                                    …
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <a class="tab__header" data-parent="#accordion" href="#tab-period">
+                                    <span>
+                                        Указать период
+                                    </span>
+                                    <div class="tab__header_cancel" data-cancel="period">
+                                        <i class="tab__header_cancel-ico fa fa-times">
+                                        </i>
+                                        <span class="tab__header_cancel-text">
+                                            сбросить
+                                        </span>
+                                    </div>
+                                </a>
+                                <div class="tab__content tab__content_in" id="tab-period">
+                                    <span class="text_helper text_helper-offset_left text_helper-offset_bottom">
+                                        Отобразить релизы за
+                                    </span>
+                                    {#
+                                    <ul class="filter-list filter-list_reset">
+                                        <li>
+                                            <input id="period_week" name="period" type="radio" value="week"/>
+                                            <label class="filter-list__item" for="period_week">
+                                                неделя
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input id="period_month" name="period" type="radio" value="month"/>
+                                            <label class="filter-list__item" for="period_month">
+                                                месяц
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input id="period_quarter" name="period" type="radio" value="quarter"/>
+                                            <label class="filter-list__item" for="period_quarter">
+                                                квартал
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input id="period_year" name="period" type="radio" value="year"/>
+                                            <label class="filter-list__item" for="period_year">
+                                                год
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    #}
+                                    <form class="tab__form-period">
+                                        <input class="tab__period placeholder_white" data-period="start" maxlength="10" placeholder="от" type="text"/>
+                                        <div class="tab__period-divider period-divider">
+                                            —
+                                        </div>
+                                        <input class="tab__period placeholder_white" data-period="end" maxlength="10" placeholder="до" type="text"/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ asset('bundles/backend/node_modules/jquery/dist/jquery.min.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/node_modules/jquery-ui/ui/widgets/datepicker.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/node_modules/jquery-ui/ui/i18n/datepicker-ru.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/js/accordion-v4.0.0.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/node_modules/holderjs/holder.min.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/js/search.js') }}">
+</script>
+{% endblock %}

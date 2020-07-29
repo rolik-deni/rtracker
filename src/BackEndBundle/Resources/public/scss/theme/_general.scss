@@ -1,0 +1,320 @@
+.placeholder_white {
+  @include placeholder(#FFF);
+}
+
+.text {
+  @include m('select_no') {
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    -webkit-touch-callout: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+  }
+  @include m('one-line') {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  @include m('helper') {
+    font-size: .75rem;
+    display: block;
+    clear: left;
+    color: #8798A3;
+  }
+  @include m('helper-offset_left') {
+    margin-left: 4px;
+  }
+  @include m('helper-offset_bottom') {
+    margin-bottom: 3px;
+  }
+}
+
+.page {
+  @include e('header') {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  @include e('footer') {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+  @include e('body') {
+    background: #EBEBEB;
+  }
+  @include e('form') {
+    margin: auto;
+  }
+}
+
+.header {
+  @include e('col-logo');
+  @include e('logo') {
+    float: left;
+    margin-top: 7px;
+  }
+  @include e('col-share');
+  @include e('col-menu');
+  @include e('menu') {
+    margin: 0;
+  }
+}
+
+.logo {
+  line-height: 1rem;
+  text-align: center;
+  @include e('img') {
+    display: block;
+    width: 230px;
+    height: 25px;
+    background-image: url('../images/sprite.png');
+    background-position: 0 0;
+  }
+  @include e('text') {
+    font-size: .75rem;
+    color: #82898F;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.share {
+  display: flex;
+  width: 221px;
+  height: 55px;
+  padding: 0 15px;
+  background: #F7F7F7;
+  justify-content: space-between;
+  align-items: center;
+  @include e('text') {
+    font-size: .75rem;
+    line-height: 10px;
+    width: 90px;
+    color: #82898F;
+  }
+  @include e('network') {
+    display: flex;
+  }
+  @include e('link') {
+    line-height: 33px;
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    text-align: center;
+    color: #FFF;
+    background: #82898F;
+    &:hover {
+      background: #2A74A4;
+    }
+  }
+  @include e('icon') {
+    font-size: 1.5rem;
+    @include m('facebook') {
+      vertical-align: -1px;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  padding: 0;
+  justify-content: flex-end;
+  @include e('item') {
+    display: inline-block;
+  }
+  @include e('link') {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    margin-left: 1px;
+    cursor: pointer;
+    text-align: center;
+    color: #FFF;
+    @include m('add') {
+      transition: background-color .2s ease-in-out;
+      background: #2A74A4;
+      &:hover {
+        color: #FFF;
+        background-color: darken(#2A74A4, 10%);
+      }
+    }
+    @include m('sign_up') {
+      transition: background-color .2s ease-in-out;
+      background: lighten(#34495E, 5%);
+      &:hover {
+        color: #FFF;
+        background-color: #2D4052;
+      }
+    }
+    @include m('log_in') {
+      transition: background-color .2s ease-in-out;
+      background: #82898F;
+      &:hover {
+        color: #FFF;
+        background-color: darken(#82898F, 10%);
+      }
+    }
+    @include m('log_out') {
+      transition: background-color .2s ease-in-out;
+      background: #82898F;
+      &:hover {
+        color: #FFF;
+        background-color: darken(#82898F, 10%);
+      }
+    }
+    &:focus {
+      color: #FFF;
+    }
+  }
+  @include e('icon') {
+    font-size: 1.5rem;
+    line-height: 55px;
+  }
+}
+
+.title {
+  @include e('col') {
+    width: 100%;
+  }
+  @include e('content') {
+    position: relative;
+    height: 55px;
+    background: #2D4052;
+    @include m('alternative') {
+      background: #15784D;
+    }
+  }
+  @include e('text') {
+    font-size: 1.2rem;
+    line-height: 51px;
+    padding: 0 1rem;
+    color: #FFF;
+  }
+}
+
+.main {
+  @include e('col') {
+    width: 100%;
+  }
+  @include e('content') {
+    background: #F7F7F7;
+    @include m('dark') {
+      background-color: #2D4052;
+    }
+    @include m('indent_yes') {
+      padding: 15px;
+    }
+  }
+}
+
+.footer {
+  font-size: .75rem;
+  @include e('col');
+  @include e('copyright') {
+    color: #232323;
+  }
+  @include e('support-menu') {
+    float: right;
+    margin: 0;
+  }
+}
+
+.support-menu {
+  padding: 0;
+  list-style: none;
+  @include e('item') {
+    display: inline-block;
+    margin-left: 9px;
+  }
+  @include e('link') {
+    text-decoration: underline;
+    color: darken(#2A74A4, 10%);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.form {
+  @include m('narrow') {
+    max-width: 660px;
+  }
+  @include e('label') {
+    @include m('require') {
+      &::after {
+        content: '*';
+        color: #C0392B;
+      }
+    }
+  }
+  @include e('input') {
+    transition: border-color .2s ease-in-out;
+    border-color: #CCC;
+    &:focus {
+      border-color: #2D4052;
+    }
+  }
+  @include e('select') {
+    // Убирает стрелку у Firefox
+    text-indent: .01px;
+    text-overflow: '';
+    -moz-appearance: none;
+  }
+  @include e('textarea') {
+    height: 0;
+    min-height: 124px;
+  }
+  @include e('submit') {
+    font-weight: bold;
+    display: block;
+    height: 38px;
+    margin: auto;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    color: #FFF;
+    border: 0;
+    background: #15784D;
+    &:hover {
+      background: #126742;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  @include e('submit-icon') {
+    padding-right: 7px;
+  }
+  @include e('reset-link') {
+    font-size: .75rem;
+    float: right;
+  }
+  @include e('col');
+}
+
+.notification {
+  background: #bec3c7;
+  height: 35px;
+  color: #666;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  @include e('badge') {
+    font-size: .65rem;
+    width: 10px;
+    height: 10px;
+  }
+  @include e('message') {
+    padding-left: 10px;
+    font-size: .75rem;
+  }
+}

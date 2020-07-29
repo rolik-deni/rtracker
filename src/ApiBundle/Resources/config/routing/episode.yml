@@ -1,0 +1,24 @@
+episode_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:Episode:index" }
+    methods:  GET
+
+episode_show:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Episode:show" }
+    methods:  GET
+
+episode_new:
+    path:     /new
+    defaults: { _controller: "ApiBundle:Episode:new" }
+    methods:  POST
+
+episode_edit:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Episode:edit" }
+    methods:  PUT
+
+episode_delete:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Episode:delete" }
+    methods:  DELETE

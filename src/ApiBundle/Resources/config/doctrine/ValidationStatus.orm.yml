@@ -1,0 +1,22 @@
+ApiBundle\Entity\ValidationStatus:
+    type: entity
+    table: validation_status
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: Идентификатор
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+                comment: Название
+    lifecycleCallbacks: {  }

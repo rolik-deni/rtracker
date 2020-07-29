@@ -1,0 +1,28 @@
+back_end_homepage:
+    path:     /
+    defaults: { _controller: BackEndBundle:Search:index }
+search:
+    path:     /search
+    defaults: { _controller: BackEndBundle:Search:index }
+serial:
+    path:     /serial/{id}
+    defaults: { _controller: BackEndBundle:Serial:index }
+    requirements:
+        id: '\d+'
+login:
+    path:     /login
+    defaults: { _controller: BackEndBundle:Login:index }
+logout:
+    path:     /logout
+signup:
+    path:     /signup
+    defaults: { _controller: BackEndBundle:SignUp:index }
+add:
+    path:     /add
+    defaults: { _controller: BackEndBundle:Add:index }
+reset:
+    path:     /reset
+    defaults: { _controller: BackEndBundle:Reset:index }
+# test:
+#     path:     /test
+#     defaults: { _controller: BackEndBundle:Test:index }

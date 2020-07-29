@@ -1,0 +1,11 @@
+// Base class
+//
+.badge {
+	padding: {
+		top: $badge-padding-t;
+		right: $badge-padding-r-b-l;
+		bottom: $badge-padding-r-b-l;
+		left: $badge-padding-r-b-l;
+	}
+	font-weight: $badge-font-weight;
+}

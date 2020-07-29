@@ -1,0 +1,24 @@
+genre_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:Genre:index" }
+    methods:  GET
+
+genre_show:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Genre:show" }
+    methods:  GET
+
+genre_new:
+    path:     /
+    defaults: { _controller: "ApiBundle:Genre:new" }
+    methods:  POST
+
+genre_edit:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Genre:edit" }
+    methods:  PUT
+
+genre_delete:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Genre:delete" }
+    methods:  DELETE

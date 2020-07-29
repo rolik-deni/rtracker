@@ -1,0 +1,804 @@
+@charset "UTF-8";
+.placeholder_white {
+  /* WebKit, Blink, Edge */
+  /* Firefox 19+ */
+  /* Firefox 4-18 */
+  /* IE 10-11 */ }
+  .placeholder_white::-webkit-input-placeholder {
+    color: #FFF;
+    opacity: 1; }
+  .placeholder_white::-moz-placeholder {
+    color: #FFF; }
+  .placeholder_white:-moz-placeholder {
+    color: #FFF;
+    opacity: 1; }
+  .placeholder_white:-ms-input-placeholder {
+    color: #FFF; }
+
+.text_select_no {
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  -webkit-touch-callout: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Non-prefixed version, currently not supported by any browser */ }
+.text_one-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+.text_helper {
+  font-size: .75rem;
+  display: block;
+  clear: left;
+  color: #8798A3; }
+.text_helper-offset_left {
+  margin-left: 4px; }
+.text_helper-offset_bottom {
+  margin-bottom: 3px; }
+
+.page__header {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+.page__footer {
+  margin-top: .5rem;
+  margin-bottom: .5rem; }
+.page__body {
+  background: #EBEBEB; }
+.page__form {
+  margin: auto; }
+
+.header__logo {
+  float: left;
+  margin-top: 7px; }
+.header__menu {
+  margin: 0; }
+
+.logo {
+  line-height: 1rem;
+  text-align: center; }
+  .logo__img {
+    display: block;
+    width: 230px;
+    height: 25px;
+    background-image: url("../images/sprite.png");
+    background-position: 0 0; }
+  .logo__text {
+    font-size: .75rem;
+    color: #82898F; }
+  .logo:hover {
+    text-decoration: none; }
+
+.share {
+  display: flex;
+  width: 221px;
+  height: 55px;
+  padding: 0 15px;
+  background: #F7F7F7;
+  justify-content: space-between;
+  align-items: center; }
+  .share__text {
+    font-size: .75rem;
+    line-height: 10px;
+    width: 90px;
+    color: #82898F; }
+  .share__network {
+    display: flex; }
+  .share__link {
+    line-height: 33px;
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    text-align: center;
+    color: #FFF;
+    background: #82898F; }
+    .share__link:hover {
+      background: #2A74A4; }
+  .share__icon {
+    font-size: 1.5rem; }
+    .share__icon_facebook {
+      vertical-align: -1px; }
+
+.menu {
+  display: flex;
+  padding: 0;
+  justify-content: flex-end; }
+  .menu__item {
+    display: inline-block; }
+  .menu__link {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    margin-left: 1px;
+    cursor: pointer;
+    text-align: center;
+    color: #FFF; }
+    .menu__link_add {
+      transition: background-color .2s ease-in-out;
+      background: #2A74A4; }
+      .menu__link_add:hover {
+        color: #FFF;
+        background-color: #20577b; }
+    .menu__link_sign_up {
+      transition: background-color .2s ease-in-out;
+      background: #3d566e; }
+      .menu__link_sign_up:hover {
+        color: #FFF;
+        background-color: #2D4052; }
+    .menu__link_log_in {
+      transition: background-color .2s ease-in-out;
+      background: #82898F; }
+      .menu__link_log_in:hover {
+        color: #FFF;
+        background-color: #696f75; }
+    .menu__link_log_out {
+      transition: background-color .2s ease-in-out;
+      background: #82898F; }
+      .menu__link_log_out:hover {
+        color: #FFF;
+        background-color: #696f75; }
+    .menu__link:focus {
+      color: #FFF; }
+  .menu__icon {
+    font-size: 1.5rem;
+    line-height: 55px; }
+
+.title__col {
+  width: 100%; }
+.title__content {
+  position: relative;
+  height: 55px;
+  background: #2D4052; }
+  .title__content_alternative {
+    background: #15784D; }
+.title__text {
+  font-size: 1.2rem;
+  line-height: 51px;
+  padding: 0 1rem;
+  color: #FFF; }
+
+.main__col {
+  width: 100%; }
+.main__content {
+  background: #F7F7F7; }
+  .main__content_dark {
+    background-color: #2D4052; }
+  .main__content_indent_yes {
+    padding: 15px; }
+
+.footer {
+  font-size: .75rem; }
+  .footer__copyright {
+    color: #232323; }
+  .footer__support-menu {
+    float: right;
+    margin: 0; }
+
+.support-menu {
+  padding: 0;
+  list-style: none; }
+  .support-menu__item {
+    display: inline-block;
+    margin-left: 9px; }
+  .support-menu__link {
+    text-decoration: underline;
+    color: #20577b; }
+    .support-menu__link:hover {
+      text-decoration: none; }
+
+.form_narrow {
+  max-width: 660px; }
+.form__label_require::after {
+  content: '*';
+  color: #C0392B; }
+.form__input {
+  transition: border-color .2s ease-in-out;
+  border-color: #CCC; }
+  .form__input:focus {
+    border-color: #2D4052; }
+.form__select {
+  text-indent: .01px;
+  text-overflow: '';
+  -moz-appearance: none; }
+.form__textarea {
+  height: 0;
+  min-height: 124px; }
+.form__submit {
+  font-weight: bold;
+  display: block;
+  height: 38px;
+  margin: auto;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+  color: #FFF;
+  border: 0;
+  background: #15784D; }
+  .form__submit:hover {
+    background: #126742; }
+  .form__submit:focus {
+    outline: none; }
+.form__submit-icon {
+  padding-right: 7px; }
+.form__reset-link {
+  font-size: .75rem;
+  float: right; }
+
+.notification {
+  background: #bec3c7;
+  height: 35px;
+  color: #666;
+  padding: 0 15px;
+  display: flex;
+  align-items: center; }
+  .notification__badge {
+    font-size: .65rem;
+    width: 10px;
+    height: 10px; }
+  .notification__message {
+    padding-left: 10px;
+    font-size: .75rem; }
+
+.start__title-icon {
+  transition: color .2s ease-in-out;
+  color: #FFF; }
+  .start__title-icon_loupe {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 16px;
+    left: 16px; }
+.start__title-field {
+  font-size: 1.2rem;
+  width: 100%;
+  height: 55px;
+  margin: 0;
+  padding: 0 120px 3px 50px;
+  transition: background .2s ease-in-out;
+  color: #FFF;
+  border: 0;
+  background: #2A74A4; }
+  .start__title-field:focus {
+    outline: none;
+    background: #126742; }
+.start__title-nav {
+  position: absolute;
+  top: 0;
+  right: 0; }
+.start__title-item {
+  width: 55px;
+  height: 55px;
+  padding: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 0;
+  background: #232323; }
+  .start__title-item_prev {
+    float: left; }
+  .start__title-item_next {
+    float: right; }
+  .start__title-item:hover .start__title-icon {
+    color: #82898F; }
+  .start__title-item:focus {
+    outline: none; }
+@media (min-width: 992px) {
+  .start__serial-list {
+    padding-right: 0; } }
+@media (min-width: 992px) {
+  .start__sidebar {
+    padding-left: 0; } }
+.start__not-found {
+  font-size: 1.2rem;
+  text-align: center; }
+
+@media (min-width: 1200px) {
+  .serial-item:nth-child(odd) {
+    padding-right: 7.5px; }
+  .serial-item:nth-child(odd) .serial-item__episode-datetime {
+    right: 8.5px; }
+  .serial-item:nth-child(even) {
+    padding-left: 7.5px; }
+  .serial-item:nth-child(even) .serial-item__poster {
+    left: 7.5px; } }
+@media (max-width: 991px) and (min-width: 768px) {
+  .serial-item:nth-child(odd) {
+    padding-right: 7.5px; }
+  .serial-item:nth-child(odd) .serial-item__episode-datetime {
+    right: 8.5px; }
+  .serial-item:nth-child(even) {
+    padding-left: 7.5px; }
+  .serial-item:nth-child(even) .serial-item__poster {
+    left: 7.5px; } }
+.serial-item__wrap {
+  display: block;
+  height: 94px;
+  margin-bottom: 15px;
+  padding: 5px;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+  border: 1px solid transparent; }
+  .serial-item__wrap:hover {
+    border: 1px solid #C7C7C7;
+    background: #EBEBEB; }
+  .serial-item__wrap:hover, .serial-item__wrap:focus {
+    text-decoration: none; }
+  .serial-item__wrap:hover .serial-item__episode-datetime {
+    background: #EBEBEB; }
+  .serial-item__wrap:hover .serial-item__poster {
+    opacity: .8; }
+.serial-item__poster {
+  font-size: .9rem;
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  width: 72px;
+  height: 94px;
+  transition: opacity .2s ease-in-out;
+  text-align: center; }
+.serial-item__content {
+  overflow: hidden;
+  height: 100%;
+  margin-left: 72px;
+  padding-left: 5px; }
+.serial-item__title {
+  font-size: 1rem;
+  font-weight: 700;
+  display: block;
+  color: #20577b; }
+  .serial-item__title:hover {
+    text-decoration: none; }
+.serial-item__detail {
+  font-size: .8rem;
+  line-height: 14px;
+  color: #666; }
+.serial-item__original-title {
+  font-weight: 700;
+  margin-right: 5px; }
+  .serial-item__original-title:empty {
+    display: none; }
+.serial-item__badge {
+  position: relative;
+  top: 1px;
+  margin-right: 4px; }
+.serial-item__release-detail {
+  font-size: .75rem;
+  display: inline-block;
+  color: #666; }
+.serial-item__quantity {
+  vertical-align: middle; }
+.serial-item__episode-index {
+  vertical-align: middle;
+  color: inherit; }
+  .serial-item__episode-index::before {
+    float: right;
+    width: 0;
+    margin: 2px 0 0 3px;
+    content: '.................................................................................';
+    white-space: nowrap;
+    letter-spacing: 2px;
+    color: #666; }
+.serial-item__episode-datetime {
+  position: absolute;
+  right: 16px;
+  bottom: 26px;
+  padding: 0 5px 0 3px;
+  transition: background .2s ease-in-out;
+  background: #F7F7F7; }
+
+.accordion {
+  padding: 0;
+  background: #2D4052; }
+
+.tab__header {
+  font-size: .97rem;
+  font-weight: 700;
+  line-height: 42px;
+  position: relative;
+  display: block;
+  height: 42px;
+  margin-bottom: 1px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+  color: #FFF;
+  background: #15784D; }
+  .tab__header::after {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -4px;
+    content: '';
+    opacity: .6;
+    border-width: 4px 5px 4px 0;
+    border-style: solid;
+    border-color: transparent #B6C9EA transparent transparent; }
+  .tab__header:hover, .tab__header:focus {
+    text-decoration: none;
+    color: #FFF;
+    background: #126742; }
+  .tab__header_sub {
+    font-weight: normal;
+    transition: background .2s ease-in-out;
+    background: #34495E; }
+    .tab__header_sub:hover {
+      background: #3d566e; }
+  .tab__header_cancel {
+    font-size: 0.8rem;
+    opacity: 0;
+    float: right;
+    margin-right: 15px;
+    padding: 0 5px 0 5px;
+    transition: opacity .2s ease-in-out; }
+    .tab__header_cancel:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      cursor: pointer; }
+  .tab__header_cancel-ico {
+    color: #242424; }
+  .tab__header_active {
+    cursor: default; }
+    .tab__header_active::after {
+      right: 12px;
+      margin-top: -2px;
+      border-width: 5px 4px 0 4px;
+      border-style: solid;
+      border-color: transparent;
+      border-top-color: #B6C9EA; }
+  .tab__header_active_main {
+    background: #C0392B !important; }
+  .tab__header_active_sub {
+    background: #34495E !important; }
+.tab__content {
+  display: none;
+  overflow: hidden;
+  padding: 10px;
+  color: #FFF; }
+  .tab__content_sub {
+    padding: 0; }
+  .tab__content_in {
+    display: block; }
+.tab__block-tracked {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #3D566E; }
+.tab__form-period {
+  display: flex;
+  overflow: hidden;
+  margin-top: 5px;
+  padding: .3rem;
+  color: #FFF;
+  background: #34495E;
+  justify-content: space-between; }
+.tab__period {
+  font-size: .9rem;
+  width: 100%;
+  height: 2rem;
+  padding: 0 .3rem;
+  text-align: center;
+  color: #FFF;
+  border: 0;
+  outline: 0;
+  background: #2D4052; }
+.tab__period-divider {
+  line-height: 2rem;
+  margin: 0 .3rem; }
+
+.filter-list {
+  overflow: hidden; }
+  .filter-list_reset {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .filter-list_left {
+    float: left; }
+  .filter-list_right {
+    float: right; }
+  .filter-list__item {
+    font-size: .9rem;
+    line-height: .9rem;
+    float: left;
+    margin: 0 4px 4px 0;
+    padding: 2px 5px 3px 5px;
+    cursor: pointer;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    color: #FFF; }
+  .filter-list input[type='radio'],
+  .filter-list input[type='checkbox'] {
+    display: none; }
+  input:checked + .filter-list__item {
+    background-color: #C0392B; }
+  input:disabled + .filter-list__item {
+    cursor: default;
+    color: #3D566E;
+    background: none; }
+
+.ui-datepicker {
+  font-size: .97rem;
+  width: 267px;
+  color: #FFF; }
+  .ui-datepicker span {
+    font-size: inherit;
+    color: inherit; }
+  .ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    background: #2D4052; }
+  .ui-datepicker .ui-datepicker-prev,
+  .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 3px;
+    padding: 0 10px;
+    cursor: pointer; }
+    .ui-datepicker .ui-datepicker-prev span,
+    .ui-datepicker .ui-datepicker-next span {
+      display: none; }
+  .ui-datepicker .ui-datepicker-prev {
+    left: 0; }
+    .ui-datepicker .ui-datepicker-prev::before {
+      font-family: FontAwesome;
+      font-size: 1.5rem;
+      content: '\f053'; }
+  .ui-datepicker .ui-datepicker-next {
+    right: 0; }
+    .ui-datepicker .ui-datepicker-next::after {
+      font-family: FontAwesome;
+      font-size: 1.5rem;
+      content: '\f054'; }
+  .ui-datepicker .ui-datepicker-calendar {
+    font-size: .9rem;
+    width: 100%;
+    border-spacing: 1px;
+    border-collapse: separate;
+    background: #34495E; }
+    .ui-datepicker .ui-datepicker-calendar th,
+    .ui-datepicker .ui-datepicker-calendar td {
+      position: relative;
+      text-align: center; }
+    .ui-datepicker .ui-datepicker-calendar td {
+      transition: background .2s ease-in-out;
+      background: #2D4052; }
+      .ui-datepicker .ui-datepicker-calendar td[data-handler='selectDay']:hover {
+        background: #34495E; }
+      .ui-datepicker .ui-datepicker-calendar td a {
+        line-height: 35px;
+        display: block; }
+    .ui-datepicker .ui-datepicker-calendar .ui-state-default {
+      color: #FFF; }
+      .ui-datepicker .ui-datepicker-calendar .ui-state-default:hover, .ui-datepicker .ui-datepicker-calendar .ui-state-default:focus {
+        text-decoration: none; }
+    .ui-datepicker .ui-datepicker-calendar .ui-datepicker-other-month {
+      cursor: default; }
+      .ui-datepicker .ui-datepicker-calendar .ui-datepicker-other-month .ui-state-default {
+        color: #3D566E; }
+    .ui-datepicker .ui-datepicker-calendar .ui-datepicker-today::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      content: '';
+      border-top: 13px solid #2A74A4;
+      border-left: 13px solid transparent; }
+    .ui-datepicker .ui-datepicker-calendar .ui-datepicker-current-day {
+      transition: background .2s ease-in-out;
+      background: #C0392B !important; }
+
+.ui-datepicker-inline {
+  width: 100%;
+  max-width: 25rem;
+  margin: 0 auto; }
+  .ui-datepicker-inline .ui-datepicker-header {
+    padding: 0 0 10px 0; }
+  .ui-datepicker-inline .ui-datepicker-prev,
+  .ui-datepicker-inline .ui-datepicker-next {
+    top: -6px; }
+
+.serial__title-subscribe {
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 55px;
+  display: block;
+  float: left;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+  color: #FFF;
+  border: 0; }
+  .serial__title-subscribe_follow_on {
+    background: #2A74A4; }
+    .serial__title-subscribe_follow_on:hover {
+      background: #C0392B; }
+      .serial__title-subscribe_follow_on:hover::before {
+        content: '\f00d'; }
+    .serial__title-subscribe_follow_on::before {
+      content: '\f00c'; }
+  .serial__title-subscribe_follow_off {
+    background: #2A74A4; }
+    .serial__title-subscribe_follow_off:hover {
+      background: #2D4052; }
+    .serial__title-subscribe_follow_off::before {
+      content: '\f067'; }
+@media (min-width: 992px) {
+  .serial__info {
+    padding-right: 0; } }
+@media (min-width: 992px) {
+  .serial__sidebar {
+    padding-left: 0; } }
+.serial__content {
+  min-height: 366px; }
+
+.serial-about__poster-mobile {
+  max-width: 150px;
+  margin-right: 10px; }
+.serial-about__text {
+  margin-bottom: 0;
+  text-align: justify; }
+@media (max-width: 1199px) {
+  .serial-about__col-detail {
+    margin-top: 15px; } }
+.serial-about__data {
+  text-align: justify; }
+  .serial-about__data th {
+    padding-right: .5rem;
+    vertical-align: top; }
+.serial-about__country-flag {
+  position: relative;
+  top: -2px; }
+
+.country-flag {
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/sprite.png); }
+  .country-flag_flag_us {
+    background-position: 0 -25px; }
+  .country-flag_flag_au {
+    background-position: -16px -25px; }
+  .country-flag_flag_gb {
+    background-position: -32px -25px; }
+  .country-flag_flag_ie {
+    background-position: -48px -25px; }
+  .country-flag_flag_ca {
+    background-position: -64px -25px; }
+  .country-flag_flag_no {
+    background-position: -80px -25px; }
+  .country-flag_flag_ru {
+    background-position: -96px -25px; }
+  .country-flag_flag_it {
+    background-position: -112px -25px; }
+  .country-flag_flag_fr {
+    background-position: -128px -25px; }
+
+.season {
+  position: relative;
+  overflow: hidden;
+  margin-top: 15px; }
+  .season__header {
+    cursor: pointer;
+    text-align: center; }
+  .season__title {
+    text-align: left;
+    color: #232323; }
+    .season__title:hover {
+      text-decoration: none;
+      color: #20577B; }
+    .season__title:hover::after {
+      border-right-color: #20577B; }
+    .season__title::after {
+      position: absolute;
+      top: 50%;
+      margin: -6px 0 0 5px;
+      content: '';
+      border-width: 4px 5px 4px 0;
+      border-style: solid;
+      border-color: transparent #232323 transparent transparent; }
+    .season__title_active:hover::after {
+      border-top-color: #20577B;
+      border-right-color: transparent; }
+    .season__title_active::after {
+      margin: -4px 0 0 5px;
+      border-width: 5px 4px 0 4px;
+      border-style: solid;
+      border-color: #232323 transparent transparent transparent; }
+  .season__progressbar-line {
+    height: 4px;
+    background: #C0392B; }
+  .season__progressbar-progress {
+    width: 30%;
+    height: 100%;
+    background: #15784D;
+    transition: width 0.5s ease-in-out; }
+  .season__progressbar-counter {
+    font-size: .75rem;
+    text-align: left; }
+  .season__episode-list {
+    display: none;
+    width: 100%;
+    margin-top: 15px; }
+    .season__episode-list_in {
+      display: table; }
+    .season__episode-list td,
+    .season__episode-list th {
+      vertical-align: top; }
+  .season__view-episode {
+    visibility: hidden;
+    cursor: pointer;
+    color: #FFF;
+    border: 0;
+    background: #2A74A4; }
+    .season__view-episode_subscribed {
+      visibility: visible; }
+  .season__episode-number {
+    color: #666; }
+  .season__episode-title {
+    font-weight: bold; }
+  @media (max-width: 575px) {
+    .season__episode-status {
+      display: none; } }
+  .season__episode-status_soon {
+    color: #C0392B; }
+  .season__view-container {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    transition: opacity .2s ease-in-out;
+    opacity: 0; }
+  .season__view-multiple {
+    font-size: .875rem;
+    margin-left: 7px;
+    padding: 0;
+    cursor: pointer;
+    color: #20577B;
+    border: 0;
+    background: 0; }
+    .season__view-multiple_direction_left {
+      float: left; }
+    .season__view-multiple_direction_right {
+      float: right; }
+    .season__view-multiple_reset {
+      color: #666; }
+    .season__view-multiple:focus {
+      outline: 0; }
+    .season__view-multiple:disabled {
+      cursor: default;
+      text-decoration: none;
+      color: #666;
+      border-color: transparent !important; }
+    .season__view-multiple:hover {
+      margin-top: -1px;
+      border-style: solid;
+      border-color: inherit;
+      border-top-width: 1px; }
+  .season__episode:hover {
+    background: #EBEBEB; }
+  .season__view-episode:hover {
+    background: #20577B; }
+  .season__episode:hover .season__view-episode {
+    visibility: visible; }
+  .season:hover .season__view-container {
+    opacity: 1; }
+
+.signup__text {
+  font-size: .9rem;
+  font-weight: bold; }
+.signup__opportunity {
+  font-size: .9rem;
+  margin: 0;
+  padding-left: 20px;
+  list-style: none; }
+.signup__opportunity-item:first-child {
+  margin-top: 10px; }
+.signup__opportunity-item::before {
+  position: absolute;
+  left: 15px;
+  content: '—'; }
+
+/*# sourceMappingURL=theme.css.map */

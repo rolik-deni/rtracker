@@ -1,0 +1,24 @@
+country_index:
+    path:     /
+    defaults: { _controller: "ApiBundle:Country:index" }
+    methods:  GET
+
+country_show:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Country:show" }
+    methods:  GET
+
+country_new:
+    path:     /
+    defaults: { _controller: "ApiBundle:Country:new" }
+    methods:  POST
+
+country_edit:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Country:edit" }
+    methods:  PUT
+
+country_delete:
+    path:     /{id}
+    defaults: { _controller: "ApiBundle:Country:delete" }
+    methods:  DELETE

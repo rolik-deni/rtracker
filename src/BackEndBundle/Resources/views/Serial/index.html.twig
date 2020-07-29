@@ -1,0 +1,171 @@
+{% extends "BackEndBundle::base.html.twig" %}
+{% block title %}Сериал{% endblock %}
+{% block content %}
+<div class="container serial">
+    <div class="title row">
+        <div class="title__col col-12">
+            <div class="title__content title__content_alternative">
+                <button class="serial__title-subscribe serial__title-subscribe_follow_off" data-serial-id="{{ serial.id }}">
+                </button>
+                <div class="title__text text_one-line">
+                    {{ serial.title }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main row">
+        <div class="main__col col-12">
+            <div class="main__content main__content_dark">
+                <div class="row">
+                    <div class="serial__info col-12 col-lg-9">
+                        <div class="serial__content main__content main__content_indent_yes">
+                            <div class="serial-about row">
+                                <div class="serial-about__col-description col-12 col-lg-12 col-xl-6">
+                                    {% if serial.poster322 is not empty %}
+                                        <img alt="{{ serial.title }}" class="serial-about__poster-mobile img-fluid pull-left hidden-lg-up" src="{{ asset('bundles/backend/images/' ~ serial.poster322) }}"/>
+                                    {% endif %}
+                                    {% if serial.description is not empty %}
+                                        <p class="serial-about__text">
+                                            {{ serial.description }}
+                                        </p>
+                                    {% else %}
+                                        …
+                                    {% endif %}
+                                </div>
+                                <div class="serial-about__col-detail col-12 col-lg-12 col-xl-6">
+                                    <table class="serial-about__data">
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    Год:
+                                                </th>
+                                                <td>
+                                                    {{ serial.yearStart is not empty ? serial.yearStart : '…'}} – {{ serial.yearEnd is not empty ? serial.yearEnd : '…'}}
+                                                </td>
+                                            </tr>
+                                            {% if serial.country is defined and serial.country is not empty %}
+                                                <tr>
+                                                    <th>Страна:</th>
+                                                    <td>
+                                                        {% for country in serial.country %}
+                                                            <div class="serial-about__country">
+                                                                <img alt="{{ country.title }}" class="serial-about__country-flag country-flag country-flag_flag_{{ country.code }}" src="{{ asset('bundles/backend/images/cleardot.gif') }}"/>
+                                                                <span class="serial-about__text country-label">
+                                                                    {{ country.title }}
+                                                                </span>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if serial.genre is defined and serial.genre is not empty %}
+                                                {% set genreTitle = [] %}
+                                                {% for genre in serial.genre %}
+                                                    {% set genreTitle = genreTitle|merge([genre.title]) %}
+                                                {% endfor %}
+                                                <tr>
+                                                    <th>Жанр:</th>
+                                                    <td>{{ genreTitle|join(', ') }}</td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if serial.tvNetwork is not empty %}
+                                                <tr>
+                                                    <th>Телесеть:</th>
+                                                    <td>{{ serial.tvNetwork.title }}</td>
+                                                </tr>
+                                            {% endif %}
+                                            {% if serial.actor is not empty %}
+                                                <tr>
+                                                    <th>В ролях:</th>
+                                                    <td>{{ serial.actor }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {% if episode is defined and episode is not empty %}
+                                <div class="serial__schedule">
+                                    {% for season in episode.season %}
+                                        <div class="season row">
+                                            <div class="season__col-header col-12">
+                                                <div class="season__header">
+                                                    <div class="season__title" data-content="#season-{{ season[loop.index0].seasonNumber }}">
+                                                        Сезон {{ season[loop.index0].seasonNumber }}
+                                                    </div>
+                                                    <div class="season__progressbar">
+                                                        <div class="season__progressbar-line">
+                                                            <div class="season__progressbar-progress">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="season__view-container">
+                                                        <button class="season__view-multiple season__view-multiple_direction_left" data-season-number="{{ season[loop.index0].seasonNumber }}" type="button">
+                                                            смотрел все
+                                                        </button>
+                                                        <button class="season__view-multiple season__view-multiple_direction_right season__view-multiple_reset" data-season-number="{{ season[loop.index0].seasonNumber }}" type="button">
+                                                            сбросить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="season__col-episode-list col-12">
+                                                <table class="season__episode-list" id="season-{{ season[loop.index0].seasonNumber }}">
+                                                    <tbody>
+                                                        {% for episode in season %}
+                                                            <tr class="season__episode">
+                                                                <td class="season__episode-watch">
+                                                                    <button class="season__view-episode" id="episode-{{ episode.id }}" data-episode-id={{ episode.id }} data-season-number="{{ season[loop.index0].seasonNumber }}" title="отметить эпизод как просмотренный" type="button">
+                                                                        <i class="season__icon-eye fa fa-eye">
+                                                                        </i>
+                                                                    </button>
+                                                                </td>
+                                                                <td class="season__episode-number">
+                                                                    s{{ episode.seasonNumber }}ep{{ episode.number }}
+                                                                </td>
+                                                                <td class="season__episode-published">
+                                                                    <time datetime="{{ episode.releaseDate }}">
+                                                                        {{ episode.releaseDate }}
+                                                                    </time>
+                                                                </td>
+                                                                <td class="season__episode-title">
+                                                                    {{ episode.title is not empty ? episode.title : episode.originalTitle }}
+                                                                </td>
+                                                                {# <td class="season__episode-status season__episode-status_soon">
+                                                                    Скоро
+                                                                </td> #}
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="serial__sidebar col-12 col-lg-3 hidden-md-down">
+                        <div class="main__content main__content_dark">
+                            {% if serial.poster322 is not empty %}
+                                <img alt="{{ serial.title }}" class="img-fluid" src="{{ asset('bundles/backend/images/' ~ serial.poster322) }}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ asset('bundles/backend/node_modules/jquery/dist/jquery.min.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/js/episode-accordion-v1.0.0.js') }}">
+</script>
+<script src="{{ asset('bundles/backend/js/serial.js') }}">
+</script>
+<script>
+    $('.season__title').episode_accordion();
+</script>
+{% endblock %}

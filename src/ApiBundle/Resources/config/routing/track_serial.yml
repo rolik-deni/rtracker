@@ -1,0 +1,19 @@
+track_serial_index:
+    path: /
+    defaults: { _controller: 'ApiBundle:TrackSerial:index' }
+    methods: GET
+
+track_serial_clear:
+    path: /clear
+    defaults: { _controller: 'ApiBundle:TrackSerial:clear' }
+    methods: DELETE
+
+track_serial_add:
+    path: /add
+    defaults: { _controller: 'ApiBundle:TrackSerial:add' }
+    methods: PUT
+
+track_serial_delete:
+    path: /delete
+    defaults: { _controller: 'ApiBundle:TrackSerial:delete' }
+    methods: DELETE

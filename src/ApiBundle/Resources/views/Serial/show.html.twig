@@ -1,0 +1,64 @@
+{% extends 'ApiBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Serial</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serial.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ serial.title }}</td>
+            </tr>
+            <tr>
+                <th>Originaltitle</th>
+                <td>{{ serial.originalTitle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ serial.description }}</td>
+            </tr>
+            <tr>
+                <th>Yearstart</th>
+                <td>{% if serial.yearStart %}{{ serial.yearStart|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Yearend</th>
+                <td>{% if serial.yearEnd %}{{ serial.yearEnd|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Actors</th>
+                <td>{{ serial.actors }}</td>
+            </tr>
+            <tr>
+                <th>Poster</th>
+                <td>{{ serial.poster }}</td>
+            </tr>
+            <tr>
+                <th>Imdbid</th>
+                <td>{{ serial.imdbId }}</td>
+            </tr>
+            <tr>
+                <th>Kinopoiskid</th>
+                <td>{{ serial.kinopoiskId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('serial_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('serial_edit', { 'id': serial.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,251 @@
+{% extends "BackEndBundle::base.html.twig" %}
+{% block title %}Добавить сериал{% endblock %}
+{% block content %}
+<div class="container add">
+    <div class="title row">
+        <div class="title__col col-12">
+            <div class="title__content">
+                <div class="title__text text_one-line">
+                    Добавление сериала
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main row">
+        <div class="main__col col-12">
+            <div class="main__content main__content_indent_yes">
+                <form action="#" class="form page__form">
+                    <div class="row">
+                        <div class="form__col col-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="form__label form__label_require" for="original_title">
+                                    Оригинальное название
+                                </label>
+                                <input class="form__input form-control" id="original_title" name="original_title" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label form__label_require" for="russian_title">
+                                    Название на русском языке
+                                </label>
+                                <input class="form__input form-control" id="russian_title" name="russian_title" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label" for="country">
+                                    Страна
+                                </label>
+                                <input class="form__input form-control" id="country" name="country" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label" for="genre">
+                                    Жанр
+                                </label>
+                                <input class="form__input form-control" id="genre" name="genre" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label" for="actors">
+                                    В гавных ролях
+                                </label>
+                                <input class="form__input form-control" id="actors" name="actors" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form__col col-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="form__label" for="description">
+                                    Описание
+                                </label>
+                                <textarea class="form__input form__textarea form-control" id="description" name="description" rows="5">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label" for="network">
+                                    Телесеть
+                                </label>
+                                <select class="form__input form__select form-control" id="network" name="network">
+                                    <option selected="selected" value="">
+                                        Не выбрана
+                                    </option>
+                                    <option value="1">
+                                        FX
+                                    </option>
+                                    <option value="2">
+                                        Showtime
+                                    </option>
+                                    <option value="3">
+                                        HBO
+                                    </option>
+                                    <option value="4">
+                                        AMC
+                                    </option>
+                                    <option value="5">
+                                        Comedy Central
+                                    </option>
+                                    <option value="6">
+                                        Syfy
+                                    </option>
+                                    <option value="7">
+                                        TNT
+                                    </option>
+                                    <option value="8">
+                                        A&E;
+                                    </option>
+                                    <option value="9">
+                                        FOX
+                                    </option>
+                                    <option value="10">
+                                        Lifetime
+                                    </option>
+                                    <option value="11">
+                                        History Channel
+                                    </option>
+                                    <option value="12">
+                                        Netflix
+                                    </option>
+                                    <option value="13">
+                                        The CW
+                                    </option>
+                                    <option value="14">
+                                        Hub Network
+                                    </option>
+                                    <option value="15">
+                                        TBS
+                                    </option>
+                                    <option value="16">
+                                        NBC
+                                    </option>
+                                    <option value="17">
+                                        CBS
+                                    </option>
+                                    <option value="18">
+                                        ITV
+                                    </option>
+                                    <option value="19">
+                                        starz
+                                    </option>
+                                    <option value="20">
+                                        USA
+                                    </option>
+                                    <option value="21">
+                                        BBC
+                                    </option>
+                                    <option value="22">
+                                        ABC
+                                    </option>
+                                    <option value="23">
+                                        Reelz
+                                    </option>
+                                    <option value="24">
+                                        E4
+                                    </option>
+                                    <option value="25">
+                                        Showcase
+                                    </option>
+                                    <option value="26">
+                                        MTV
+                                    </option>
+                                    <option value="27">
+                                        CTC
+                                    </option>
+                                    <option value="28">
+                                        nickelodeon
+                                    </option>
+                                    <option value="29">
+                                        Sky
+                                    </option>
+                                    <option value="30">
+                                        CBC
+                                    </option>
+                                    <option value="31">
+                                        Cinemax
+                                    </option>
+                                    <option value="32">
+                                        SVT
+                                    </option>
+                                    <option value="33">
+                                        Discovery
+                                    </option>
+                                    <option value="34">
+                                        CTV
+                                    </option>
+                                    <option value="35">
+                                        El Rey
+                                    </option>
+                                    <option value="36">
+                                        WGN
+                                    </option>
+                                    <option value="37">
+                                        Amazon
+                                    </option>
+                                    <option value="38">
+                                        Disney
+                                    </option>
+                                    <option value="39">
+                                        Channel 4
+                                    </option>
+                                    <option value="40">
+                                        Adult Swim
+                                    </option>
+                                    <option value="41">
+                                        Audience
+                                    </option>
+                                    <option value="42">
+                                        Xbox Video
+                                    </option>
+                                    <option value="43">
+                                        M6
+                                    </option>
+                                    <option value="45">
+                                        RTL
+                                    </option>
+                                    <option value="46">
+                                        SundanceTV
+                                    </option>
+                                    <option value="47">
+                                        Kanal 5
+                                    </option>
+                                    <option value="48">
+                                        City
+                                    </option>
+                                    <option value="49">
+                                        Hallmark
+                                    </option>
+                                    <option value="50">
+                                        Crackle
+                                    </option>
+                                    <option value="51">
+                                        SoHo
+                                    </option>
+                                    <option value="52">
+                                        tru
+                                    </option>
+                                    <option value="53">
+                                        Hulu
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label form__label_require" for="kinopoisk">
+                                    Ссылка на Кинопоиск
+                                </label>
+                                <input class="form__input form-control" id="kinopoisk" name="kinopoisk" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form__label" for="official_site">
+                                    Официальный сайт
+                                </label>
+                                <input class="form__input form-control" id="official_site" name="official_site" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form__col col-12">
+                            <button class="form__submit" type="submit">
+                                <i aria-hidden="true" class="form__submit-icon fa fa-plus">
+                                </i>
+                                Отправить на модерацию
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

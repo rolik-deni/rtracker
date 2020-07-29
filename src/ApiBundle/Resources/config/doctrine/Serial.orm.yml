@@ -1,0 +1,176 @@
+ApiBundle\Entity\Serial:
+    type: entity
+    table: serial
+    indexes:
+        idx_serial_tv_network_id:
+            columns:
+                - tv_network_id
+        idx_serial_validation_status_id:
+            columns:
+                - validation_status_id
+    id:
+        id:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: true
+                comment: Идентификатор
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+                comment: Название
+        originalTitle:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+                comment: 'Оригинальное название'
+            column: original_title
+        description:
+            type: text
+            nullable: true
+            options:
+                comment: 'Описание'
+            column: description
+        yearStart:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+                comment: 'Дата начала выхода серий'
+            column: year_start
+        yearEnd:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+                comment: 'Дата завершения выхода серий'
+            column: year_end
+        actor:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                comment: 'Список актёров'
+            column: actor
+        poster322:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+                comment: Постер с шириной 322 px
+            column: poster322
+        poster72:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+                comment: Постер с шириной 72 px
+            column: poster72
+        imdbId:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+                comment: 'Идентификатор на imdb.com'
+            column: imdb_id
+        kinopoiskId:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+                comment: 'Идентификатор на kinopoisk.ru'
+            column: kinopoisk_id
+        seasonNumber:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+                comment: 'Число сезонов'
+            column: season_number
+        episodeNumber:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+                comment: 'Число эпизодов'
+            column: episode_number
+        url:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+                comment: 'Ссылка на сериал'
+    manyToOne:
+        tvNetwork:
+            targetEntity: TvNetwork
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tv_network_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        validationStatus:
+            targetEntity: ValidationStatus
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                validation_status_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: serial
+            inversedBy: null
+        country:
+            targetEntity: Country
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinTable:
+                name: serial_has_country
+                joinColumns:
+                    serial_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    country_id:
+                        referencedColumnName: id
+            orderBy: null
+        genre:
+            targetEntity: Genre
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinTable:
+                name: serial_has_genre
+                joinColumns:
+                    serial_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    genre_id:
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }
